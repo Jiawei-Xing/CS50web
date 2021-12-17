@@ -1,0 +1,33 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}{{ category.capitalize }}{% endblock %}
+
+
+{% block body %}
+
+    <h2>{{ category.capitalize }}</h2>
+    
+    {% for listing in listings %}
+
+        <hr>
+        
+        <h4>
+            <a href="{% url 'listing' listing.id %}">{{ listing.title }}</a>
+            {% if listing.price %}
+            ${{ listing.price }}
+            {% else %}
+            Starting at ${{ listing.starting }}
+            {% endif %}
+        </h4>
+        
+        <p>{{ listing.text }}</p>
+        
+        <img src="{{ listing.image }}" style="width: 300px">
+        
+    {% empty %}
+    
+        Nothing here!
+        
+    {% endfor %}
+
+{% endblock %}

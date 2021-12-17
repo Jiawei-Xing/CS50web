@@ -1,0 +1,74 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}Listing{% endblock %}
+
+{% block body %}
+
+    <h2>Listing: {{ listing.title }}</h2>
+    
+    
+    <form action="{% url 'listing' listing.id %}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="watchlist">
+        <input type="submit" value="Watchlist">
+    </form>
+
+        
+    <div style="font-size: 20px; color: red">{{ message }}</div>
+    
+    
+    <p>
+        {% if listing.price %}
+            Current price: ${{ listing.price }}
+        {% else %}
+            starting at ${{ listing.starting }}
+        {% endif %}
+    </p>
+    
+    
+    <p>Description: {{ listing.text }} </p>
+    <img src="{{ listing.image }}" style="width: 800px">
+    <p>Listed by: {{ listing.owner.username }}</p>
+    <p>Category: {{ listing.category }}</p>
+    
+    
+    {% if listing.status %}
+    
+        <form action="{% url 'listing' listing.id %}" method="post">
+            {% csrf_token %}
+            <input type="integer" name="bid">
+            <input type="submit" value="Bid">
+        </form>
+    
+    
+        {% if user == listing.owner %}
+            <form action="{% url 'listing' listing.id %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="close">
+                <input type="submit" value="Close this listing">
+            </form>
+        {% endif %}
+    
+    {% endif %}
+    
+    
+    <hr>
+    <h4>Comments</h4>
+    
+    <ul>
+    {% for comment in comments %}
+        <br>
+        <li>
+            <p>{{ comment.commenter }}: {{ comment.comment }}</p>
+            <p>{{ comment.time }}</p>
+        </li>
+    {% endfor %}
+    </ul>
+    
+    <form action="{% url 'listing' listing.id %}" method="post">
+        {% csrf_token %}
+        <input type="textarea" name="comment" autocomplete=off placeholder="comment here">
+        <input type="submit" value="Submit">
+    </form>
+    
+{% endblock %}

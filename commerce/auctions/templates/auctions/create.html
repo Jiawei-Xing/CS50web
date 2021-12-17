@@ -1,0 +1,25 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}Create{% endblock %}
+
+{% block body %}
+    <h2>Create Listing</h2>
+
+    <form action="{% url 'create' %}" method="post">
+        {% csrf_token %}
+        <p><input type="text" placeholder="title" autocomplete=off name="title"></p>
+        <p><input type="text" placeholder="description" autocomplete=off name="text"></p>
+        <p>Starting bid ($):</p>
+        <p><input type="number" autocomplete=off name="bid"></p>
+        <p><input type="link" placeholder="image" autocomplete=off name="image"></p>
+        <p>
+        Category: 
+        <select name="category">
+            {% for category in categories %}
+                <option value="{{ category }}">{{ category }}</option>
+            {% endfor %}
+        </select>
+        </p>
+        <p><input type="submit" value="Submit"></p>
+    </form>
+{% endblock %}
