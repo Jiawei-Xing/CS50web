@@ -1,0 +1,109 @@
+a
+{
+    color: black;
+    text-decoration: none;
+    font-family: arial;
+    font-size: 15px;
+}
+
+a:hover
+{
+    text-decoration: underline;
+}
+
+#image
+{
+    position: absolute;
+    top: 20px;
+    right: 120px;
+}
+
+#advanced
+{
+    position: absolute;
+    top: 20px;
+    right: 30px;
+}
+
+#google
+{
+    position: absolute;
+    top: 20px;
+    right: 30px;
+}
+
+img
+{
+    width: 300px;
+    display: block;
+    margin: auto;
+    margin-top: 150px;
+}
+
+div
+{
+    position: absolute;
+    top: 230px;
+    right: 540px;
+    color: dodgerblue;
+    font-family: arial;
+    font-size: 18px;
+}
+
+form
+{
+    text-align: center;
+    margin-top: 30px;
+}
+
+.text
+{
+    border-radius: 30px;
+    border: 1px solid #dddddd;
+    width: 500px;
+    height: 50px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-image: url(searching-icon.png);
+    background-repeat: no-repeat;
+    background-position: 12px;
+    background-size: 20px;
+    font-size: 18px;
+}
+
+.text:hover
+{
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    border: 1px solid #cccccc;
+}
+
+.text:focus
+{
+    outline: none;
+}
+
+.submit
+{
+    border: 0;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    width: 150px;
+    height: 40px;
+    font-size: 15px;
+    margin-top: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.submit:hover
+{
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    border: 1px solid #cccccc;
+}
+
+.submit-image
+{
+    margin-left: -40px;
+    width: 20px;
+}

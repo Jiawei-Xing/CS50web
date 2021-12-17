@@ -1,0 +1,83 @@
+a
+{
+    color: black;
+    text-decoration: none;
+    font-family: arial;
+    font-size: 15px;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+}
+
+a:hover
+{
+    text-decoration: underline;
+}
+
+img
+{
+    width: 80px;
+    margin: 15px;
+}
+
+body
+{
+    font-family: arial;
+}
+
+h3
+{
+    color: #dd0000;
+    margin: 40px;
+    font-size: 20px;
+    font-weight: 100;
+}
+
+hr
+{
+    border: 0.1px solid #eeeeee;
+}
+
+h4
+{
+    margin: 40px;
+    font-weight: 100;
+}
+
+p
+{
+    margin-left: 40px;
+    margin-bottom: 30px;
+}
+
+input[type="text"]
+{
+    width: 50%;
+    height: 30px;
+    float: right;
+    margin-right: 33%;
+    border: 0.1px solid #bbbbbb;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15)
+}
+
+input[type="text"]:focus
+{
+    outline: blue;
+    border: 1px solid blue;
+}
+
+input[type="submit"]
+{
+    background-color: dodgerblue;
+    padding: 10px;
+    color: white;
+    margin-left: 57%;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+input[type="submit"]:hover
+{
+    background-color: royalblue;
+}
