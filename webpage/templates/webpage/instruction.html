@@ -1,0 +1,19 @@
+{% extends "webpage/layout.html" %}
+
+{% block body %}   
+    <h1>Instructions</h1>
+    
+    <hr>
+    
+    <ol>
+      <li><a href="{% url 'login' %}">Login</a> or <a href="{% url 'register' %}">Register</a>
+      <li>Choose a title for your new project (required).</li>
+      <li>Click on the options on the left to add input fields.</li>
+      <li>Type in the text field for your headings/texts.</li>
+      <li>Click "Save" to save your new project anytime.</li>
+      <li>Click on your profile to get access to all of your saved projects. Click "Edit" to edit them.</li>
+      <li>You are welcome to modify the generated HTML file.</li>
+    </ol>
+    
+    <a href="{% url 'create' %}">Create</a> now!
+    {% endblock %}

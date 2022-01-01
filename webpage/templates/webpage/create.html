@@ -1,0 +1,103 @@
+{% extends "webpage/layout.html" %}
+
+{% block body %} 
+    <script type="text/Javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            let count = {{ count }};
+            
+            document.querySelector('#h1').onclick = function() {
+                count ++;
+                let input = document.createElement('div');
+                input.innerHTML = `[${count}]Heading1:<br><textarea name="h1-${count}" id="input${count}" oninput="H1(${count})"></textarea><br>`;
+                document.querySelector('#inputs').appendChild(input);
+                document.querySelector(`#input${count}`).focus();
+            };
+            
+            document.querySelector('#h2').onclick = function() {
+                count ++;
+                let input = document.createElement('div');
+                input.innerHTML = `[${count}]Heading2:<br><textarea name="h2-${count}" id="input${count}" oninput="H2(${count})"></textarea><br>`;
+                document.querySelector('#inputs').appendChild(input);
+                document.querySelector(`#input${count}`).focus();
+            };
+            
+            document.querySelector('#h3').onclick = function() {
+                count ++;
+                let input = document.createElement('div');
+                input.innerHTML = `[${count}]Heading3:<br><textarea name="h3-${count}" id="input${count}" oninput="H3(${count})"></textarea><br>`;
+                document.querySelector('#inputs').appendChild(input);
+                document.querySelector(`#input${count}`).focus();
+            };
+            
+            document.querySelector('#text').onclick = function() {
+                count ++;
+                let input = document.createElement('div');
+                input.innerHTML = `[${count}]Text:<br><textarea name="text-${count}" id="input${count}" oninput="Text(${count})"></textarea><br>`;
+                document.querySelector('#inputs').appendChild(input);
+                document.querySelector(`#input${count}`).focus();
+            };
+            
+            document.querySelector('#ul').onclick = function() {
+                count ++;
+                let input = document.createElement('div');
+                input.innerHTML = `[${count}]Bullet Point:<br><textarea name="ul-${count}" id="input${count}" oninput="Ul(${count})"></textarea><br>`;
+                document.querySelector('#inputs').appendChild(input);
+                document.querySelector(`#input${count}`).focus();
+            };
+        });
+        
+        
+        function H1(count) {
+            document.querySelector(`#view`).innerHTML = "<h1>" + document.querySelector(`#input${count}`).value + "</h1>";
+        }
+        
+        function H2(count) {
+            document.querySelector(`#view`).innerHTML = "<h2>" + document.querySelector(`#input${count}`).value + "</h2>";
+        }
+        
+        function H3(count) {
+            document.querySelector(`#view`).innerHTML = "<h3>" + document.querySelector(`#input${count}`).value + "</h3>";
+        }
+        
+        function Text(count) {
+            document.querySelector(`#view`).innerHTML = "<p>" + document.querySelector(`#input${count}`).value + "</p>";
+        }
+        
+        function Ul(count) {
+            document.querySelector(`#view`).innerHTML = "<ul><li>" + document.querySelector(`#input${count}`).value + "</ul></li>";
+        }
+    </script>
+
+
+    <h1>Create an HTML file</h1> 
+    <hr> 
+        
+    <div class="row">
+        <div class="sidebar col-lg-3 col-md-3">
+            <h2>Options</h2>
+            <p><button id="h1"><h1>Heading1</h1></button></p>
+            <p><button id="h2"><h2>Heading2</h2></button></p>
+            <p><button id="h3"><h3>Heading3</h3></button></p>
+            <p><button id="text">Textarea</button></p>
+            <p><button id="ul">Bullet Point</button></p>  
+        </div>
+    
+        <div class="main col-lg-8 col-md-8">
+            <form action="{% url 'create' %}" method="post">
+                {% csrf_token %}
+                Title (required): <br>
+                <textarea id="title" name="title" autofocus autofill="false">{{ title }}</textarea><br>
+                
+                <div id="inputs">
+                    <p>Click on the option buttons to insert input fields!</p>
+                    {{ old_html|safe }}
+                </div>
+                
+                <div id="view">
+                </div>
+                
+                <input type="submit" value="Save">
+            </form>
+        </div> 
+    </div>
+{% endblock %}

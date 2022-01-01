@@ -1,0 +1,21 @@
+{% extends "webpage/layout.html" %}
+
+{% block body %}   
+    <h1>Profile</h1>
+    <h2>{{ user }}</h2>
+    <hr>
+    
+    <ol>
+      {% for project in projects %}
+        <li>
+          <a href="{% url 'project' project.id %}">{{ project.title }}</a>{{ project.time }}
+          <form action="{% url 'profile' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="del" value="{{ project.id }}">
+            <input type="submit" value="Delete" style="float:right">
+          </form>
+          <hr>
+        </li>
+      {% endfor %}
+    </ol>
+{% endblock %}

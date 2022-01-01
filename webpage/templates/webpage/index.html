@@ -1,0 +1,24 @@
+{% extends "webpage/layout.html" %}
+
+{% block body %}   
+    <h1>Welcome to Webpage Generator!</h1>
+    
+    <hr>
+    
+    <p>Want to create a webpage but hate writing HTML and JavaScript? Try out our Webpage Generator!</p>
+    
+    <ul>
+      <li>User friendly: no coding needed!</li>
+      <li>Powerful: various headings and text options</li>
+      <li>Interactive: show your input in real time</li>
+      <li>Convenient: save and get back at anytime</li>
+    </ul>
+    
+    <hr>
+
+    <p>See <a href="{% url 'instruction' %}">instructions</a> for how to use this tool.</p>
+    
+    <p><a href="{% url 'login' %}">Login</a> now to create your own webpage and/or get access to your previous projects.</p>
+    
+    <p>Don't have an account? <a href="{% url 'register' %}">Register</a> now!</p>
+{% endblock %}
