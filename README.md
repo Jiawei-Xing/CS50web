@@ -1,2 +1,2 @@
 ## CS50web
-Web programming with python and JavaScript
+Assignments from Harvard online course CS50web (Web programming with python and JavaScript).
